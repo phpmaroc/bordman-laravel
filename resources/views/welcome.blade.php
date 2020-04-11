@@ -1,100 +1,256 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.template')
+@section('title', 'Home page')
+@section('content')
+<!-- Slider -->
+<section class="slider-holder">
+	<div class="flexslider carousel">
+		<ul class="slides">
+			<li> <img src="{{ asset('images/slide1.jpg') }}" alt="" /> </li>
+			<li> <img src="{{ asset('images/slide2.jpg') }}" alt="" /> </li>
+		</ul>
 
-        <title>Laravel</title>
+		<div class="search-box">
+			<div class="container">
+				<div class="search-box-inner">
+					<h1>Search for Professionals</h1>
+					<form action="job-professionals.html" method="POST" role="form">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-1">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Keyword (title job or company)">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="select-style">
+										<select class="form-control">
+											<option>All cities</option>
+											<option>Casablanca</option>
+											<option>Rabat</option>
+											<option>Fes</option>
+											<option>Marrakech</option>
+											<option>Tanger</option>
+										</select>
+									</div>
+								</div>
+							</div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+							<div class="col-md-3">
+								<div class="form-group">
+									<div class="select-style">
+										<select class="form-control">
+											<option>All Services</option>
+											<option>Informatique</option>
+											<option>Hotelerie</option>
+											<option>Développement</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1">
+								<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Slider / End -->
 
-            .full-height {
-                height: 100vh;
-            }
+<!-- Page Content -->
+<section class="page-content">
+	<div class="container">
+		<!-- Stats -->
+		<div class="section-light section-nomargin">
+			<div class="section-inner">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="counter-holder counter-dark">
+							<i class="fa fa-3x fa-suitcase"></i>
+							<span class="counter-wrap">
+								<span class="counter" data-to="42" data-speed="1500" data-refresh-interval="50">42</span>
+							</span>
+							<span class="counter-info">
+								<span class="counter-info-inner">All Jobs</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="counter-holder counter-dark">
+							<i class="fa fa-3x fa-thumbs-o-up"></i>
+							<span class="counter-wrap">
+								<span class="counter" data-to="12" data-speed="1500" data-refresh-interval="50">12</span>
+							</span>
+							<span class="counter-info">
+								<span class="counter-info-inner">Jobs Filled</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="counter-holder counter-dark">
+							<i class="fa fa-3x fa-user"></i>
+							<span class="counter-wrap">
+								<span class="counter" data-to="48" data-speed="1500" data-refresh-interval="50">48</span>
+							</span>
+							<span class="counter-info">
+								<span class="counter-info-inner">Professionals</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="counter-holder counter-dark">
+							<i class="fa fa-3x fa-users"></i>
+							<span class="counter-wrap">
+								<span class="counter" data-to="64" data-speed="1500" data-refresh-interval="50">64</span>
+							</span>
+							<span class="counter-info">
+								<span class="counter-info-inner">Members</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Stats / End -->
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+		<div class="spacer-xl"></div>
 
-            .position-ref {
-                position: relative;
-            }
+		<!-- Listings -->
+		<div class="title-bordered">
+			<h2>Our Professionals <small>Latest added</small></h2>
+		</div>
+		<div class="job_listings">
+			<ul class="job_listings">
+				<li class="job_listing">
+					<a href="#">
+						<div class="job_img">
+							<img src="{{ asset('images/nologo.png') }}" alt="" class="company_logo">
+						</div>
+						<div class="position">
+							<h3>Debbie Bidart</h3>
+							<div class="company"> <strong>Paint Removal from Exterior or Interior Surfaces</strong> </div>
+						</div>
+						<div class="location">
+							<i class="fa fa-location-arrow"></i> Casablanca,
+						</div>
+						<ul class="meta">
+							<li class="job-type">Service name</li>
+							<li class="date">
+								Posted 1 month ago
+							</li>
+						</ul>
+					</a>
+				</li>
+				
+			</ul>
+		</div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+		<div class="spacer"></div>
 
-            .content {
-                text-align: center;
-            }
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<a class="btn btn-default btn-block" href="#">View All Companies</a>
+			</div>
+		</div>
 
-            .title {
-                font-size: 84px;
-            }
+		<!-- Listings / End -->
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+		<div class="spacer-xxl"></div>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+		<!-- Promobox -->
+		<div class="promobox" data-stellar-background-ratio="0.5">
+			<div class="row">
+				<div class="col-md-4 promobox-item">
+					<h4><span>For</span> Designers</h4>
+					<img src="{{ asset('images/samples/worker3.png') }}" alt="" class="img-responsive">
+					<a href="#" class="btn btn-primary btn-sm">See Here</a>
+				</div>
+				<div class="col-md-4 promobox-item">
+					<h4><span>For</span> Plumbers</h4>
+					<img src="{{ asset('images/samples/worker1.png') }}" alt="" class="img-responsive">
+					<a href="#" class="btn btn-primary btn-sm">See Here</a>
+				</div>
+				<div class="col-md-4 promobox-item">
+					<h4><span>For</span> Builders</h4>
+					<img src="{{ asset('images/samples/worker2.png') }}" alt="" class="img-responsive">
+					<a href="#" class="btn btn-primary btn-sm">See Here</a>
+				</div>
+			</div>
+		</div>
+		<!-- Promobox / End -->
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+		<div class="spacer-lg"></div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+		<div class="spacer"></div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+		<!-- Testimonials -->
+		<div class="title-bordered">
+			<h2>Testimonials <small>what clients say</small></h2>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="testimonial">
+					<blockquote>
+						<p>If you're faced with home improvement or repair tasks, and don't have the time, I would give Handyman my highest recommendation.</p>
+					</blockquote>
+					<div class="bq-author">
+						<figure class="author-img">
+							<img src="{{ asset('images/samples/user1-sm.jpg') }}" alt="">
+						</figure>
+						<h6>Michael Smith</h6>
+						<span class="bq-author-info">Copywriter</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="testimonial">
+					<blockquote>
+						<p>They worked hard and offered to help me set up my furniture once it was in my new home.</p>
+						<p>Very pleased!</p>
+					</blockquote>
+					<div class="bq-author">
+						<figure class="author-img">
+							<img src="{{ asset('images/samples/user3-sm.jpg') }}" alt="">
+						</figure>
+						<h6>Bradley Cooper</h6>
+						<span class="bq-author-info">Teacher</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="testimonial">
+					<blockquote>
+						<p>The movers were friendly, helpful, polite, professional and efficient. They did a great job! I would highly recommend them! Thank you!</p>
+					</blockquote>
+					<div class="bq-author">
+						<figure class="author-img">
+							<img src="{{ asset('images/samples/user2-sm.jpg') }}" alt="">
+						</figure>
+						<h6>Hanna Pinkman</h6>
+						<span class="bq-author-info">Radiologist</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="testimonial">
+					<blockquote>
+						<p>I am very happy with their work. they did a great job. They were very helpful with other aspects of the work i had in mind. They were very clean, and very quick.</p>
+					</blockquote>
+					<div class="bq-author">
+						<figure class="author-img">
+							<img src="{{ asset('images/samples/user4-sm.jpg') }}" alt="">
+						</figure>
+						<h6>Erick Fox</h6>
+						<span class="bq-author-info">Botanist</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Testimonials / End -->
+	</div>
+</section>
+		
+@endsection

@@ -1,1 +1,17 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/dist/css/bootstrap.css';
+
+@import '../fonts/font-awesome/css/font-awesome.css';
+@import '../vendor/flexslider/flexslider.css';
+// @import '../vendor/job-manager/frontend.css';
+
+// BASE
+@import './base/theme.css';
+@import './base/theme-elements.css';
+@import './base/animate.min.css';
